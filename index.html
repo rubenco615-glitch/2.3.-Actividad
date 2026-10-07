@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 2.3 - Rastreador de Memoria</title>
+</head>
+
+<body>
+    <h1>Rastreador de Memoria</h1>
+    <p>Abre la consola de desarrollo de tu navegador (F12) para ver los resultados.</p>
+
+    <script>
+        // CONFIGURACIÓN DE DEPURACIÓN
+        const _DEBUGMODE = true;
+
+        // === ZONA 1 ===
+        if (_DEBUGMODE) console.log("Log A:", producto);
+        var producto = "Teclado Mecánico";
+        if (_DEBUGMODE) console.log("Log B:", producto);
+
+
+        // === ZONA 2 ===
+        function laboratorioScope() {
+            var descuento = 10;
+
+            if (true) {
+                let descuento = 25;
+                const impuesto = 0.21;
+                if (_DEBUGMODE) console.log("Log C:", descuento);
+            }
+
+            if (_DEBUGMODE) console.log("Log D:", descuento);
+
+            try {
+                if (_DEBUGMODE) console.log("Log E:", impuesto);
+            } catch (error) {
+                if (_DEBUGMODE) console.log("Log E: ¡ERROR CATASTRÓFICO!");
+            }
+        }
+
+        laboratorioScope();
+
+
+        // === ZONA 3 ===
+        try {
+            if (_DEBUGMODE) console.log("Log F:", precio);
+            let precio = 49.99;
+        } catch (error) {
+            if (_DEBUGMODE) console.log("Log F: ¡ERROR CATASTRÓFICO!");
+        }
+    </script>
+</body>
+
+</html>
